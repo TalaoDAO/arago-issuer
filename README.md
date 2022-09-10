@@ -1,1 +1,1 @@
-# arago-issuer
+# tezotopia-verifier

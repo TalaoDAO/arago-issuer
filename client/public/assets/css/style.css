@@ -1,0 +1,191 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  max-width: 768px;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  background: url("../img/bg-img-2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.left-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voucher-form {
+  background-color: white;
+  padding: 2rem;
+  width: 450px;
+  /*height: 520px;*/
+  border-radius: 20px;
+  margin: 2rem;
+}
+
+.voucher-form h5 {
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.voucher-form .MuiFormControl-root,
+.voucher-form__select,
+.commission-form__select,
+.blockchain-form__select {
+  margin-bottom: 1rem;
+}
+
+.voucher-form button {
+  float: right;
+  margin-top: 1rem;
+}
+
+.page-content {
+  padding: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.offer-text h1 {
+  font-size: 61px;
+  font-weight: 700;
+  color: #fbd400;
+  line-height: 63px;
+}
+
+.header img {
+  max-width: 372px;
+}
+
+.offer-text span span {
+  font-weight: 400;
+}
+
+.icon-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fbd400;
+  line-height: 18px;
+  margin-top: 23px;
+}
+
+.icon-text span {
+  color: #923aff;
+}
+
+.icon-text p {
+  margin: 0;
+}
+
+.icon-box {
+  width: 166px;
+}
+
+.icon-area {
+  gap: 35px;
+  justify-content: center;
+  padding: 48px 0;
+}
+
+.icon-box .icon {
+  min-height: 45px;
+}
+
+.icon-box {
+  position: relative;
+}
+
+.icon-box-1::after,
+.icon-box-2::after {
+  position: absolute;
+  right: -71px;
+  width: 107px;
+  height: 3px;
+  background: #923aff;
+  content: "";
+  top: 18px;
+}
+
+.active-btn {
+  background: #923aff;
+  color: #fff;
+  border: 0px;
+  font-size: 18px;
+  font-weight: 700;
+  width: 348px;
+  height: 70px;
+  border-radius: 14px;
+  transition: 0.3s;
+}
+
+button.active-btn a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+
+.active-btn:hover {
+  background: #fbd400;
+  color: #923aff;
+}
+
+.terms-text p {
+  color: #923aff;
+  font-size: 14px;
+}
+
+.terms-text {
+  margin-top: 24px;
+  padding-bottom: 18px;
+}
+
+.theme-modal .modal-dialog {
+  max-width: 348px;
+}
+
+.theme-modal .modal-content {
+  border-radius: 12px;
+}
+
+.theme-modal h2 {
+  font-size: 23px;
+  color: #923aff;
+  font-weight: 700;
+  line-height: 31px;
+  margin-bottom: 35px;
+}
+
+.theme-modal .modal-body {
+  /*padding: 39px 50px;*/
+}
+
+.modal-open {
+  overflow: auto !important;
+}
+
+.vouchers-table {
+  margin: 7rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    width: 100%;
+  }
+}

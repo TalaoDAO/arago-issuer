@@ -1,0 +1,12 @@
+{
+  "DEFAULT_JWK": "{ask to owner}",
+  "ACCESS_TOKEN_SECRET": "{ask to owner}",
+  "REDIS_KEY": "REDIS_KEY",
+  "API_URL": "API_URL",
+  "VOUCHER_API_URL": "VOUCHER_API_URL",
+  "AUTHORIZED_EMAILS": [
+    "admin@talao.io",
+    "support@talao.io",
+    "me.test@gmail.com"
+  ]
+}
