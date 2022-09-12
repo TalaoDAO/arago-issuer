@@ -6,10 +6,6 @@ const FullLayout = ({ children }) => {
   return (
     <Wrapper>
       <Container>
-        <div className="logo-wrapper">
-          <img className="logo" src="/assets/img/logo-tezotopia-desktop.png" alt="" />
-        </div>
-
         {children}
       </Container>
     </Wrapper>

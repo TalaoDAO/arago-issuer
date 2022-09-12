@@ -4,16 +4,16 @@ import socketIOClient from 'socket.io-client';
 import API from '../api';
 import Success from "../components/Success";
 import FullLayout from "../layout/FullLayout";
-import { Wrapper } from "./styles";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import QRCode from "react-qr-code";
-import ProcessSteps from "../parts/ProcessSteps";
+import { LinkButton } from "../components/Styles/LinkButton";
+import { Wrapper } from "./styles";
 
 function Home() {
     const [qrUrl, setQRUrl] = useState('')
     const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
     const [isLoggedIn, setLoggedIn] = useState(false);
-    const [voucher, setVoucher] = useState(null)
+    const [showQrCode, setShowQrCode] = useState(false);
 
     useEffect(() => {
         socket.on('authorised', function (isAuthorized) {
@@ -36,7 +36,6 @@ function Home() {
                 const sessionId = res.data.data.session_id
                 localStorage.setItem('token', sessionId)
                 localStorage.setItem('issuer', res.data.data.issuer)
-                setVoucher(res.data.data.voucher)
                 setInterval(function () {
                     socket.emit('check-status', sessionId)
                 }, 2000);
@@ -47,61 +46,34 @@ function Home() {
         }
     }
 
+    const activate = () => {
+        if (qrUrl) {
+            setShowQrCode(true);
+        }
+    };
+
     return (
         <FullLayout>
             <Wrapper>
-
-                <div className="title-container">
-                    <img className="unit-img" src="/assets/img/unit-left-tablet.png" alt=""/>
-
-                    <Box
-                        sx={{display: 'flex', alignItems: 'center', flexDirection: 'column', mx: 'auto'}}
-                    >
-                        {voucher && <Typography
-                            className="title"
-                            sx={{color: '#fbd400'}}
-
-                        >
-                            {voucher.credentialSubject.offers ? voucher.credentialSubject.offers.benefit.discount : 0} discount
-                        </Typography>}
-
-                        <Typography
-                            className="title"
-                            sx={{color: '#fff'}}
-                        >
-                            on NFTs*
-                        </Typography>
-                    </Box>
-
-                    <img className="unit-img" src="/assets/img/unit-right-tablet.png" alt=""/>
-                </div>
-
-                <div className="download-section">
-                    <img className="download-img" src="/assets/img/google-play.png" alt=""/>
-                    <img className="download-img" src="/assets/img/app-store.png" alt=""/>
-                </div>
-
-                <Box sx={{mb: 10}}>
-                    <ProcessSteps/>
-                </Box>
-
                 {isLoggedIn ? <Success/> :
-                    qrUrl &&
-                    <Box sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        flexDirection: 'column'
-                    }}>
-                        <h6 style={{color: "white", marginBottom: '1rem'}}>
-                            Scan the QR code
-                        </h6>
-                        <div style={{padding: '1rem', backgroundColor: "white", borderRadius: "1rem"}}>
-                            <QRCode
-                                title="Download the App"
-                                value={qrUrl}
-                            />
-                        </div>
-                    </Box>}
+                    showQrCode ?
+                        <Box sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            flexDirection: 'column'
+                        }}>
+                            <h6 style={{color: "white", marginBottom: '1rem'}}>
+                                Scan the QR code
+                            </h6>
+                            <div style={{padding: '1rem', backgroundColor: "white", borderRadius: "1rem"}}>
+                                <QRCode
+                                    title="Download the App"
+                                    value={qrUrl}
+                                />
+                            </div>
+                        </Box> : <LinkButton className="d-none d-lg-block" onClick={activate}>
+                            Activate
+                        </LinkButton>}
             </Wrapper>
         </FullLayout>
     );

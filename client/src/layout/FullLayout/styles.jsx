@@ -1,8 +1,6 @@
 import { styled } from '@mui/material';
 
 export const Wrapper = styled('div')`
-  padding: 30px 0;
-      
   .logo-wrapper {
     display: flex;
     align-items: center;
