@@ -5,7 +5,7 @@ const axios_package = require('axios');
 axios_package.interceptors.response.use(undefined, (err) => {
     switch (err.response.status) {
         case 401:
-            if (!!localStorage.getItem('token')) {
+            if (!localStorage.getItem('token')) {
                 localStorage.removeItem('token');
             }
             break;
