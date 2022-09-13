@@ -43,6 +43,6 @@ io.on('connection', function(socket){
     });
 });
 
-const PORT = process.env.PORT || 5004;
+const PORT = process.env.PORT || 5006;
 
 httpServer.listen(PORT, () => console.log('Example app listening on port:', PORT))

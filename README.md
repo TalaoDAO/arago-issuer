@@ -1,1 +1,1 @@
-# tezotopia-verifier
+# arago-verifier
