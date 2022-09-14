@@ -7,7 +7,7 @@ const didkit = require('../helpers/didkit-handler');
 const client = require('../helpers/redis-client');
 const { checkExpiration, findUser, generateAccessToken } = require('../service/auth.service');
 const {updateCredential, getVoucherById, storeSignedVoucher, updateIssuanceDate} = require("../service/voucher.service");
-const {ARAGO_KEY, ARAGO_OBJ} = require("../utils");
+const {ARAGO_KEY, ARAGO_OBJ, CREDENTIAL_MANIFEST} = require("../utils");
 
 exports.getQRCode = async (req, res) => {
   try {
@@ -80,6 +80,7 @@ exports.getChallenge = async (req, res) => {
       "expires": now.add(5, 'minutes').toDate(),
       "challenge": challenge,
       "domain": "talao.co",
+      "credential_manifest": CREDENTIAL_MANIFEST.arago
     };
 
     await updateIssuanceDate(ARAGO_KEY, moment().toDate())
