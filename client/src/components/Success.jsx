@@ -6,7 +6,7 @@ function Success() {
     <Box sx={{ color: "#fff", textAlign: "center" }}>
       <img className="download-img" src="/assets/img/ic-success.svg" alt="success-check" />
       <Typography fontSize={26} sx={{ fontWeight: 500 }}>
-          {"You have now your voucher"}
+          {"You have now your pass"}
       </Typography>
     </Box>
   );
