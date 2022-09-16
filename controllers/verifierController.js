@@ -150,7 +150,7 @@ exports.verify = async (req, res) => {
     user.logged_in = true;
     await client.lSet(config.get('REDIS_KEY'), userIndex, JSON.stringify(user))
 
-    return res.status(200).json({ message: 'Arago Pass is stored successfully', success: true });
+    res.status(200).json(signedVoucher);
   } catch (err) {
     console.log(err.message);
     return res.status(500).send("Server error");
