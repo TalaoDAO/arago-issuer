@@ -143,14 +143,16 @@ exports.verify = async (req, res) => {
 
     const verificationMethod = await didkit.getVerificationMethod(config.get('DEFAULT_JWK'));
     const signedVoucher = await didkit.sign(config.get('DEFAULT_JWK'), verificationMethod, voucher);
-    await storeSignedVoucher(signedVoucher)
+    if (signedVoucher) {
+      await storeSignedVoucher(signedVoucher)
+    }
 
     user.logged_in = true;
     await client.lSet(config.get('REDIS_KEY'), userIndex, JSON.stringify(user))
 
     return res.status(200).json({ message: 'Arago Pass is stored successfully', success: true });
   } catch (err) {
-    console.log(err);
+    console.log(err.message);
     return res.status(500).send("Server error");
   }
 };
