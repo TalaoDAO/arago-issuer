@@ -1,14 +1,14 @@
 import { styled } from '@mui/material';
 
 export const LinkButton = styled('div')`
-  background: #fbd400;
+  background: #75FD92;
   outline: none;
   border: none;
-  border-radius: 10px;
+  border-radius: 4px;
   padding: 15px;
   width: 100%;
   text-align: center;
-  margin: 20px auto;
+  margin: 40px auto;
 
   &:hover {
     opacity: 0.8;
