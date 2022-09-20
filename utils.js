@@ -6,7 +6,7 @@ exports.CREDENTIAL_MANIFEST =
             "id":"AragoPass",
             "issuer":{
                 "id":"",
-                "name":"Talao issuer sandbox"
+                "name":"Arago issuer by Altme"
             },
             "output_descriptors":[
                 {
@@ -25,14 +25,14 @@ exports.CREDENTIAL_MANIFEST =
                             "schema": {
                                 "type": "string"
                             },
-                            "fallback": "The pass for your cultural activities"
+                            "fallback": "Le pass de vos activités culturelles"
                         },
                         "description": {
                             "path": [],
                             "schema": {
                                 "type": "string"
                             },
-                            "fallback": "You can use this pass when you need to prove this information to services that have adopted the verifiable and decentralized identity system."
+                            "fallback": "Vous pouvez utiliser ce pass pour accéder au contenu des sites partenaires d'Arago."
                         },
                         "properties": [
 
@@ -43,7 +43,7 @@ exports.CREDENTIAL_MANIFEST =
                                     "type": "string"
                                 },
                                 "fallback": "Unknown",
-                                "label": "Verified by"
+                                "label": "Vérifié par"
                             },
                             {
                                 "path": ["$.expirationDate"],
@@ -52,7 +52,7 @@ exports.CREDENTIAL_MANIFEST =
                                     "format" : "date"
                                 },
                                 "fallback": "None",
-                                "label": "Expires"
+                                "label": "Expire"
                             },
                             {
                                 "path": ["$.credentialSubject.group"],
@@ -60,7 +60,7 @@ exports.CREDENTIAL_MANIFEST =
                                     "type": "string"
                                 },
                                 "fallback": "Unknown",
-                                "label": "Group"
+                                "label": "Groupe"
                             }
                         ]
                     }
