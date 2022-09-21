@@ -8,31 +8,44 @@ import { Box } from "@mui/material";
 import QRCode from "react-qr-code";
 import { Wrapper } from "./styles";
 import { LinkButton } from "../components/Styles/LinkButton";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Home() {
     const [qrUrl, setQRUrl] = useState('')
     const socket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
     const [isLoggedIn, setLoggedIn] = useState(false);
     const [showQrCode, setShowQrCode] = useState(false);
-    const [callBack] = useState('')
+    const [callBack, setCallback] = useState('')
+    const location = useLocation();
     const navigate = useNavigate();
 
     useEffect(() => {
         socket.on('authorised', function (isAuthorized) {
             setLoggedIn(isAuthorized)
-            navigate(callBack)
         })
     }, []);
+
+    useEffect(() => {
+        if (isLoggedIn) {
+            window.location.replace(callBack);
+        }
+    }, [isLoggedIn])
 
     useEffect(() => {
         (async function getUrlNow() {
             await getQRUrl();
         })();
-        navigate({
-            pathname: window.location.pathname,
-            search: `?callback=${callBack}`
-        })
+
+        const search = location.search;
+        const name = new URLSearchParams(search).get('callback');
+        if (name) {
+            setCallback(name)
+        } else {
+            navigate({
+                pathname: window.location.pathname,
+                search: `?callback=${callBack}`
+            })
+        }
     }, []);
 
     const getQRUrl = async () => {
