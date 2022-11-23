@@ -105,7 +105,7 @@ function Home() {
                             </div>
                         </Box>}
 
-                    <img className="arago-card" src="/assets/img/arago-wallet.png" alt="" />
+                    {/*<img className="arago-card" src="/assets/img/arago-wallet.png" alt="" />*/}
                 </div>
             </Wrapper>
         </FullLayout>

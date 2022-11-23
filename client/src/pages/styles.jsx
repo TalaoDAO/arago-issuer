@@ -17,6 +17,6 @@ export const Wrapper = styled('div')`
     display: flex;
     margin-top: 70px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
 `;
