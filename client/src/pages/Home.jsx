@@ -82,8 +82,6 @@ function Home() {
                             Ajouter au Wallet Arago
                         </a>
                     </LinkButton>
-
-                    <img className="arago-card" src="/assets/img/arago-wallet-mobile.png" alt="" />
                 </div>
 
                 <div className={"arago-content d-none d-lg-flex"}>
@@ -104,8 +102,6 @@ function Home() {
                                 />
                             </div>
                         </Box>}
-
-                    {/*<img className="arago-card" src="/assets/img/arago-wallet.png" alt="" />*/}
                 </div>
             </Wrapper>
         </FullLayout>
